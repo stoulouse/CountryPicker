@@ -195,7 +195,11 @@
         
     }
     
-    [(UILabel *)(view.subviews)[0] setText:[isa countryNames][row]];
+	if (delegate && [delegate respondsToSelector:@selector(countryPicker:countryNameForCode:)]) {
+		[(UILabel *)(view.subviews)[0] setText:[delegate countryPicker:self countryNameForCode:[isa countryCodes][row]]];
+	} else {
+		[(UILabel *)(view.subviews)[0] setText:[isa countryNames][row]];
+	}
     UIImage *flag = [UIImage imageNamed:[[isa countryCodes][row] stringByAppendingPathExtension:@"png"]];
     [(UIImageView *)(view.subviews)[1] setImage:flag];
     

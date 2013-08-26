@@ -56,6 +56,9 @@
 
 - (void)countryPicker:(CountryPicker *)picker didSelectCountryWithName:(NSString *)name code:(NSString *)code;
 
+@optional
+- (NSString*)countryPicker:(CountryPicker *)picker countryNameForCode:(NSString *)code;
+
 @end
 
 
